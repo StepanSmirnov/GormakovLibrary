@@ -1,0 +1,319 @@
+body {
+	background: image-url('bg.jpg') no-repeat;
+	font-family: sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+}
+
+.clearfix {
+	float: boath;
+}
+
+#apps {
+	display: none;
+	margin: auto;
+	width: 980px;
+	height: 580px;
+	border: 3px solid #0053ED;
+	margin-top: 50px;
+	border-radius: 7px 7px 0 0;
+	background: #ece9d8;
+	box-shadow: 3px 3px 25px black;
+}
+
+.apps__content {
+	padding: 7px;
+	width: 966px;
+	height: 504px;
+	overflow: auto;
+}
+
+.apps__icon {
+	margin-right: 7px;
+	float: left;
+}
+
+.apps__name {
+	float: left;
+}
+
+.apps__window-buttons {
+	float: right;
+	height: 30px;
+	line-height: 30px;
+}
+
+.window-buttons__manipulation {
+	width: 26px;
+	height: 26px;
+	line-height: 26px;
+	text-align: center;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	background: blue;
+	display: inline-block;
+	float: left;
+	margin-left: 3px;
+}
+
+.window-buttons__manipulation a {
+	color: #fff;
+	text-shadow: none;
+	display: block;
+}
+
+.window-buttons__close {
+	width: 26px;
+	height: 26px;
+	line-height: 26px;
+	text-align: center;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	background: red;
+	display: inline-block;
+	float: right;
+	margin-left: 3px;
+}
+
+.window-buttons__close a {
+	color: #fff;
+	text-shadow: none;
+	display: block;
+}
+
+header {
+	color: #ffffff;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px black;
+	height: 30px;
+	line-height: 30px;
+	padding-left: 5px;
+	background: #0053ED;
+}
+
+/* Меню приложения */
+.apps__menu {
+	height: 30px;
+	border-bottom: 1px solid #ffffff;
+}
+
+ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+ul:after {
+    display: block;
+    content: ' ';
+    clear: both;
+    float: none;
+}
+
+ul.apps__menu > li {
+    float: left;
+    position: relative;
+    margin-right: 5px; 
+}
+
+ul.apps__menu > li > a {
+    display: block;
+    text-decoration: none;
+	padding: 3px;
+	margin: 1px;
+}
+
+ul.apps__menu > li > a:hover {
+    background-color: blue;
+    color: #ffffff;
+}
+
+ul.apps__submenu {
+    display: none;
+    position: absolute;
+    width: 250px;
+    left: 0;
+    background-color: white;
+}
+
+ul.apps__submenu > li {
+    display: block;
+}
+
+ul.apps__submenu > li > a {
+	padding: 3px;
+	margin: 1px;
+    display: block;
+    text-decoration: none;
+}
+
+ul.apps__submenu > li > a:hover {
+    background-color: blue;
+    color: white;
+}
+
+ul.apps__menu > li:hover > ul.apps__submenu {
+    display: block;
+}
+/* конецМеню приложения*/
+
+
+
+
+
+/* Окно О программе */
+#about, #download-bd, #add-to-base {
+	position: relative;
+	display: none;
+	margin: auto;
+	width: 480px;
+	height: 250px;
+	border: 3px solid #0053ED;
+	margin-top: -450px;
+	border-radius: 7px 7px 0 0;
+	background: #ece9d8;
+	box-shadow: 3px 3px 25px black;
+}
+
+.add-to-base__content {
+	padding: 20px;
+	text-align: right;
+}
+
+.add-to-base__content div {
+	padding: 25px;
+	text-align: center;
+}
+
+#add-to-base {
+	height: 390px;
+}
+
+input {
+	margin: 2px;
+	width: 250px;
+}
+
+.about__content img {
+	float: left;
+	padding: 35px;
+}
+
+.about__content div {
+	padding: 15px;
+	padding-right: 30px;
+	text-align: right;
+}
+/* конецОкно О программе*/
+
+
+#turn {
+	border-radius: 0 5px 0 0;
+	display: none;
+	padding-left: 10px;
+	text-align: left;
+	width: 180px;
+	height: 30px;
+	line-height: 30px;
+	background: #0053ED;
+	position: absolute;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0px 0px 5px #000;
+}
+
+#turn a {
+	color: #fff;
+	display: block;
+}
+
+
+#download-bd {
+	height: 160px;
+}
+
+.download-bd {
+	padding: 15px;
+}
+
+.download-bd p {
+	margin-bottom: 35px;
+}
+
+.button {
+	border: 1px solid #003772;
+	border-radius: 5px;
+	padding: 5px 15px 5px 15px;
+}
+
+.download-button {
+	text-align: right;
+}
+
+
+
+
+
+
+
+
+
+
+/* Иконки на рабочем столе */
+#desktop {
+	float: both;
+	margin: auto;
+	padding-left: 200px;
+	padding-top: 125px;
+}
+
+#desktop p {
+	padding: 0;
+	margin: 0;
+}
+
+#desktop a {
+	display: block;
+	text-align: center;
+	height: 100px;
+	color: #fff;
+	text-shadow: 0.1em 0.1em 0.2em black; color: aliceblue;
+}
+
+.desktop__icons {
+	float: left;
+	text-align: center;
+	width: 100px;
+	padding: 5px;
+	height: 120px;
+}
+/* конецИконки на рабочем столе*/
+
+
+/* test */
+table {
+	font-size: 12px;
+	border: 1px solid gray;
+	border-radius: 5px;
+	width: 950px;
+}
+
+thead {
+	font-weight: bold;
+	background: #d3d3d3;
+}
+
+td {
+	border-right: 1px solid gray;
+}
+
+td:last-child {
+	border-right: none;
+}

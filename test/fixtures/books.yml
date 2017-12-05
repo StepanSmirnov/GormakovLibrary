@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tomes_count: 1
+  author: MyString
+  title: MyString
+  genre: MyString
+  publisher: MyString
+  year: 2017-12-04
+  price: 1.5
+  name: MyString
+  comment: MyString
+
+two:
+  tomes_count: 1
+  author: MyString
+  title: MyString
+  genre: MyString
+  publisher: MyString
+  year: 2017-12-04
+  price: 1.5
+  name: MyString
+  comment: MyString

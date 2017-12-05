@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Library</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag :all %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  
+  <body>
+
+  <div id="apps">
+		<header>
+			<div class="apps__icon"><%= image_tag "img/icon-small.png" %></div>
+			<div class="apps__name">DataBase Web App</div>
+			
+			<div class="apps__window-buttons">
+				<div class="window-buttons__manipulation">
+					<a onclick="document.getElementById('turn').style.display='block'; document.getElementById('apps').style.display='none'; document.getElementById('desktop').style.display='block';">_</a>
+				</div>
+				
+				<div class="window-buttons__manipulation"><a>O</a></div>
+				
+				<div class="window-buttons__close clearfix">
+					<a onclick="document.getElementById('apps').style.display='none'; document.getElementById('desktop').style.display='block';">x</a>
+				</div>
+			</div>
+		</header>
+
+
+		<div class="apps__menu">
+			<ul class="apps__menu">
+				<li><a>Файл</a>
+				<ul class="apps__submenu">
+		            <li><a onclick="document.getElementById('download-bd').style.display='block';">Скачать базу данных</a></li>
+		            <li><a onclick="document.getElementById('apps').style.display='none';
+		            	document.getElementById('desktop').style.display='block';">Выход</a></li>
+		        </ul>
+				<li><a>Таблицы</a>
+				<ul class="apps__submenu">
+		            <li><a>Информация о клиенте</a></li>
+		            <li><a>Информация об операторе</a></li>
+		            <li><a>Услуги</a></li>
+		        </ul>
+    			</li>
+				<li>
+					<a>Добавление данных</a>
+					<ul class="apps__submenu">
+			            <li><a onclick="document.getElementById('add-to-base').style.display='block';">Книги</a></li>
+			            <li><a>Информация об операторе</a></li>
+			            <li><a>Услуги</a></li>
+		        	</ul>
+		    	</li>
+				<li>
+					<a>Справка</a>
+					<ul class="apps__submenu">
+		           		<li>
+		           			<a onclick="document.getElementById('about').style.display='block';">О программе</a>
+		           		</li>
+		   			</ul>
+		    	</li>
+			</ul>
+		</div>
+
+    <%= yield %>
+
+	</div>
+    <!-- О программе -->
+	<div id="about">
+		<header>
+			<div class="apps__name">О программе DataBase Web App</div>
+			
+			<div class="apps__window-buttons">
+				<div class="window-buttons__close clearfix">
+					<a onclick="document.getElementById('about').style.display='none';">x</a>
+				</div>
+			</div>
+		</header>
+		
+		<div class="about__content clearfix">
+			<%= image_tag "img/icon-big.png" %>
+			<div>
+				<h3>База данных<br>«Личная библиотека»</h3>
+				<p>Гормаков Сергей</p>
+				<p>Тверь<br>2017</p>
+			</div>	
+		</div>
+
+	</div>
+<!-- / О программе -->
+
+
+<!-- Свернутый вид окна -->
+	<div id="turn">
+		<div class="apps__icon"><%= image_tag "img/icon-small.png" %></div>
+		<a onclick="document.getElementById('turn').style.display='none'; document.getElementById('apps').style.display='block'; document.getElementById('desktop').style.display='none';">DataBase Web App</a>
+	</div>
+<!-- / Свернутый вид окна -->
+
+
+<!-- Рабочий стол -->
+	<div id="desktop">
+		
+		<div class="desktop__icons">
+			<a><%= image_tag "img/icon-my-computer.png" %><p>My Computer</p></a>
+		</div>
+		
+		<div class="desktop__icons">
+			<a><%= image_tag "img/icon-recycle-bin.png" %><p>Recycle Bin</p></a>
+		</div>
+
+		<div class="desktop__icons clearfix">
+			<a onclick="document.getElementById('desktop').style.display='none';
+					document.getElementById('apps').style.display='block';">
+					<%= image_tag "img/icon.png" %>
+					<p>DataBase<br>Web App</p></a>
+		</div>
+	</div>
+<!-- / Рабочий стол -->
+
+
+<!-- Добавление данных в БД -->
+	<div id="add-to-base">
+		<header>
+			<div class="apps__name">Добавить данные в БД: Книги</div>
+			<div class="window-buttons__close clearfix">
+				<a onclick="document.getElementById('add-to-base').style.display='none';">x</a>
+			</div>
+		</header>
+		<div class="add-to-base clearfix">
+			<div class="add-to-base__content">
+				<%= form_for @book, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+					<%= label_tag(:tomes_count, "Томов") %>
+					<%= f.number_field :tomes_count, in: 1..20, step: 1%><br>
+					<%= label_tag(:author, "Автор") %>
+					<%= f.text_field :author %><br>
+					<%= label_tag(:title, "Название") %>
+					<%= f.text_field :title %><br>
+					<%= label_tag(:genre, "Жанр") %>
+					<%= f.text_field :genre %><br>
+					<%= label_tag(:publisher, "Издательство") %>
+					<%= f.text_field :publisher %><br>  
+					<%= label_tag(:year, "Год издания") %>
+					<%= f.date_field :year %><br>
+					<%= label_tag(:price, "Цена") %>
+					<%= f.number_field :price, in: 0.01..99999.99, step: 0.01 %><br>  
+					<%= label_tag(:name, "ФИО взявшего книгу") %>
+					<%= f.text_field :name %><br>
+					<%= label_tag(:comment, "Примечания") %>
+					<%= f.text_field :comment %><br>
+					<%= f.submit "Create" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+<!-- / Добавление данных в БД -->
+
+
+<!-- Загрузка базы данных с сайта -->
+	<div id="download-bd">
+		<header>
+			<div class="apps__name">Скачать базу данных</div>
+			<div class="window-buttons__close clearfix">
+				<a onclick="document.getElementById('download-bd').style.display='none';">x</a>
+			</div>
+		</header>
+		<div class="download-bd clearfix">
+				<p>Размер базы данных: <b>20 Мб</b></p>
+				<div class="download-button">
+					<a class="button">Скачать</a>
+				</div>
+		</div>
+	</div>
+<!-- / Загрузка базы данных с сайта -->
+  </body>
+</html>
