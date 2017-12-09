@@ -11,7 +11,8 @@
   
   <body>
 
-  <div id="apps">
+<!-- Главное окно -->
+	<div id="apps">
 		<header>
 			<div class="apps__icon"><%= image_tag "img/icon-small.png" %></div>
 			<div class="apps__name">DataBase Web App</div>
@@ -40,7 +41,7 @@
 		        </ul>
 				<li><a>Таблицы</a>
 				<ul class="apps__submenu">
-		            <li><a>Информация о клиенте</a></li>
+		            <li><a>Книги</a></li>
 		            <li><a>Информация об операторе</a></li>
 		            <li><a>Услуги</a></li>
 		        </ul>
@@ -48,7 +49,7 @@
 				<li>
 					<a>Добавление данных</a>
 					<ul class="apps__submenu">
-			            <li><a onclick="document.getElementById('add-to-base').style.display='block';">Книги</a></li>
+			            <li><%= link_to 'Книги', new_book_path, remote: true %></li>
 			            <li><a>Информация об операторе</a></li>
 			            <li><a>Услуги</a></li>
 		        	</ul>
@@ -63,9 +64,9 @@
 		    	</li>
 			</ul>
 		</div>
-
-    <%= yield %>
-
+		<div class="apps__content">
+			<%= yield %>
+		</div>
 	</div>
     <!-- О программе -->
 	<div id="about">
@@ -104,16 +105,15 @@
 	<div id="desktop">
 		
 		<div class="desktop__icons">
-			<a><%= image_tag "img/icon-my-computer.png" %><p>My Computer</p></a>
+			<a onclick="document.getElementById('window-error').style.display='block';"><%= image_tag "img/icon-my-computer.png" %><p>My Computer</p></a>
 		</div>
-		
+
 		<div class="desktop__icons">
-			<a><%= image_tag "img/icon-recycle-bin.png" %><p>Recycle Bin</p></a>
+			<a onclick="document.getElementById('window-error').style.display='block';"><%= image_tag "img/icon-recycle-bin.png" %><p>Recycle Bin</p></a>
 		</div>
 
 		<div class="desktop__icons clearfix">
-			<a onclick="document.getElementById('desktop').style.display='none';
-					document.getElementById('apps').style.display='block';">
+			<a onclick="document.getElementById('window-login').style.display='block';">
 					<%= image_tag "img/icon.png" %>
 					<p>DataBase<br>Web App</p></a>
 		</div>
@@ -131,27 +131,6 @@
 		</header>
 		<div class="add-to-base clearfix">
 			<div class="add-to-base__content">
-				<%= form_for @book, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
-					<%= label_tag(:tomes_count, "Томов") %>
-					<%= f.number_field :tomes_count, in: 1..20, step: 1%><br>
-					<%= label_tag(:author, "Автор") %>
-					<%= f.text_field :author %><br>
-					<%= label_tag(:title, "Название") %>
-					<%= f.text_field :title %><br>
-					<%= label_tag(:genre, "Жанр") %>
-					<%= f.text_field :genre %><br>
-					<%= label_tag(:publisher, "Издательство") %>
-					<%= f.text_field :publisher %><br>  
-					<%= label_tag(:year, "Год издания") %>
-					<%= f.date_field :year %><br>
-					<%= label_tag(:price, "Цена") %>
-					<%= f.number_field :price, in: 0.01..99999.99, step: 0.01 %><br>  
-					<%= label_tag(:name, "ФИО взявшего книгу") %>
-					<%= f.text_field :name %><br>
-					<%= label_tag(:comment, "Примечания") %>
-					<%= f.text_field :comment %><br>
-					<%= f.submit "Create" %>
-				<% end %>
 			</div>
 		</div>
 	</div>
@@ -174,5 +153,42 @@
 		</div>
 	</div>
 <!-- / Загрузка базы данных с сайта -->
+
+
+<!-- Вход в приложение -->
+	<div id="window-login">
+		<header>
+			<div class="apps__name">Авторизация</div>
+			<div class="window-buttons__close clearfix">
+				<a onclick="document.getElementById('window-login').style.display='none';">x</a>
+			</div>
+		</header>
+		<div class="window-login__main clearfix">
+			<form>
+				<input type="text" name="login" id="login">
+				<input type="text" name="password" id="password">
+				<div>
+					<a class="button" onclick="document.getElementById('window-login').style.display='none'; document.getElementById('apps').style.display='block'; document.getElementById('desktop').style.display='none';">Войти</a>
+				</div>
+			</form>
+		</div>
+	</div>
+<!-- / Вход в приложение -->
+
+
+<!-- Error-window -->
+	<div id="window-error">
+		<header>
+			<div class="apps__name">Error 404</div>
+			<div class="window-buttons__close clearfix">
+				<a onclick="document.getElementById('window-error').style.display='none';">x</a>
+			</div>
+		</header>
+		<div class="window-login__main clearfix">
+			<p>Sorry, this application was not found on your computer</p>
+			<p>Please send a bug report to Microsoft</p>
+		</div>
+	</div>
+<!-- / Error-window -->
   </body>
 </html>

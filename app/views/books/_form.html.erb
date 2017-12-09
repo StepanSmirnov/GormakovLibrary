@@ -1,0 +1,21 @@
+<%= form_for @book, html: {class: "nifty_form"}, remote: true do |f| %>
+    <%= label_tag(:tomes_count, "Томов") %>
+    <%= f.number_field :tomes_count, in: 1..20, step: 1%><br>
+    <%= label_tag(:author, "Автор") %>
+    <%= f.text_field :author %><br>
+    <%= label_tag(:title, "Название") %>
+    <%= f.text_field :title %><br>
+    <%= label_tag(:genre, "Жанр") %>
+    <%= f.text_field :genre %><br>
+    <%= label_tag(:publisher, "Издательство") %>
+    <%= f.text_field :publisher %><br>  
+    <%= label_tag(:year, "Год издания") %>
+    <%= f.date_field :year %><br>
+    <%= label_tag(:price, "Цена") %>
+    <%= f.number_field :price, in: 0.01..99999.99, step: 0.01 %><br>  
+    <%= label_tag(:name, "ФИО взявшего книгу") %>
+    <%= f.text_field :name %><br>
+    <%= label_tag(:comment, "Примечания") %>
+    <%= f.text_field :comment %><br>
+    <%= f.button :submit %>
+<% end %>

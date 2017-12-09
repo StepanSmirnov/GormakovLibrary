@@ -1,5 +1,5 @@
 body {
-	background: image-url('bg.jpg') no-repeat;
+	background: url('bg.jpg') no-repeat;
 	font-family: sans-serif;
 	margin: 0;
 	padding: 0;
@@ -32,6 +32,19 @@ a {
 	width: 966px;
 	height: 504px;
 	overflow: auto;
+}
+
+.apps__content table tr:hover {
+	background-color: #d3d3d3;
+	cursor: pointer;
+}
+
+.apps__content table thead tr:active {
+	background-color: transparent;
+}
+
+.apps__content table tr:active {
+	background-color: #9c9c9c;
 }
 
 .apps__icon {
@@ -159,6 +172,10 @@ ul.apps__submenu > li > a:hover {
     color: white;
 }
 
+ul.apps__submenu > li > a:active {
+    background-color: #1313c0;
+}
+
 ul.apps__menu > li:hover > ul.apps__submenu {
     display: block;
 }
@@ -192,8 +209,13 @@ ul.apps__menu > li:hover > ul.apps__submenu {
 	text-align: center;
 }
 
+.add-to-base__content a {
+	margin: 0 5px;
+}
+
 #add-to-base {
-	height: 390px;
+	height: 455px;
+	margin-top: -525px;
 }
 
 input {
@@ -251,6 +273,14 @@ input {
 	border: 1px solid #003772;
 	border-radius: 5px;
 	padding: 5px 15px 5px 15px;
+}
+
+.button:hover {
+	box-shadow: 0 0 3px gray;
+}
+
+.button:active {
+	background-color: #9c9c9c;
 }
 
 .download-button {
@@ -316,4 +346,49 @@ td {
 
 td:last-child {
 	border-right: none;
+}
+
+/* new 12/07 */
+#window-login, #window-error {
+	text-align: center;
+	width: 300px;
+	height: 150px;
+	position: relative;
+	display: none;
+	margin: auto;
+	border: 3px solid #0053ED;
+	border-radius: 7px 7px 0 0;
+	background: #ece9d8;
+	box-shadow: 3px 3px 25px black;
+}
+
+#window-login header {
+	margin-bottom: 15px;
+}
+
+#window-login__main {
+	padding: 15px;
+}
+
+#window-login__main button {
+	margin: 10px;
+}
+
+input {
+	margin: 3px;
+	width: 250px;
+	padding: 3px;
+	border-radius: 1px;
+}
+
+#window-login__main #login {
+	border-radius: 5px;
+}
+
+#window-login {
+	height: 170px;
+}
+
+#window-login__main div {
+	margin: 20px;
 }

@@ -1,0 +1,13 @@
+      <tr>
+        <td><%= book.tomes_count %></td>
+        <td><%= book.author %></td>
+        <td><%= book.title %></td>
+        <td><%= book.genre %></td>
+        <td><%= book.publisher %></td>
+        <td><%= book.year %></td>
+        <td><%= book.price %></td>
+        <td><%= book.name %></td>
+        <td><%= book.comment %></td>
+        <td><%=link_to "Изменить", edit_book_path(book), remote: true%></td>
+        <td><%=link_to "Удалть", book_path(book), method: :delete, remote: true%></td>
+      </tr>

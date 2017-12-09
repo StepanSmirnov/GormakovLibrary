@@ -1,29 +1,18 @@
 <table>
-				<thead>
-					<tr>
-						<td>Томов</td>
-						<td>Автор</td>
-						<td>Название</td>
-						<td>Жанр</td>
-						<td>Издательство</td>
-						<td>Год издания</td>
-						<td>Цена</td>
-						<td>ФИО взявшего книгу</td>
-						<td>Примечания</td>
-					</tr>
-				</thead>
-   
-    <% @books.each do |book| %>
-      <tr>
-        <td><%= book.tomes_count %></td>
-        <td><%= book.author %></td>
-        <td><%= book.title %></td>
-        <td><%= book.genre %></td>
-        <td><%= book.publisher %></td>
-        <td><%= book.year %></td>
-        <td><%= book.price %></td>
-        <td><%= book.name %></td>
-        <td><%= book.comment %></td>
-      </tr>
-    <% end %>
-  </table>
+  <thead>
+    <tr>
+      <td>Томов</td>
+      <td>Автор</td>
+      <td>Название</td>
+      <td>Жанр</td>
+      <td>Издательство</td>
+      <td>Год издания</td>
+      <td>Цена</td>
+      <td>ФИО взявшего книгу</td>
+      <td>Примечания</td>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @books%>
+  </tbody>
+</table>

@@ -1,7 +1,9 @@
 class BooksController < ApplicationController
+    before_action :all_books, only: [:index, :create, :update, :destroy]
+    respond_to :html, :js
+
     def index
-        @books = Book.all
-        @book = Book.new
+        # @book = Book.new
     end
 
     def new
@@ -11,10 +13,31 @@ class BooksController < ApplicationController
     def create
         @book = Book.new(book_params)
         @book.save
-        redirect_to books_path
+    end
+
+    def edit
+        @book = Book.find(params[:id])
+        render 'new'
+    end
+
+    def update
+        @book = Book.find(params[:id])
+        @book.update(book_params)
+        render 'create'
+    end
+
+
+    def destroy
+        @book = Book.find(params[:id])
+        @book.destroy
+        render 'create'
     end
 
 private
+    def all_books
+        @books = Book.all
+    end
+
     def book_params
       params.require(:book).permit(:tomes_count, :author, :title, :genre, :publisher, :year, :price, :name, :comment)
     end
