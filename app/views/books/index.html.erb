@@ -1,15 +1,15 @@
 <table>
   <thead>
     <tr>
-      <td>Томов</td>
-      <td>Автор</td>
-      <td>Название</td>
-      <td>Жанр</td>
-      <td>Издательство</td>
-      <td>Год издания</td>
-      <td>Цена</td>
-      <td>ФИО взявшего книгу</td>
-      <td>Примечания</td>
+      <td><%= link_to "Томов", books_path(sort: "tomes_count"), remote: true%></td>
+      <td><%= link_to "Автор", books_path(sort: "author"), remote: true%></td>
+      <td><%= link_to "Название", books_path(sort: "title"), remote: true%></td>
+      <td><%= link_to "Жанр", books_path(sort: "genre"), remote: true%></td>
+      <td><%= link_to "Издательство", books_path(sort: "publisher"), remote: true%></td>
+      <td><%= link_to "Год издания", books_path(sort: "year"), remote: true%></td>
+      <td><%= link_to "Цена", books_path(sort: "price"), remote: true%></td>
+      <td><%= link_to "ФИО взявшего книгу", books_path(sort: "name"), remote: true%></td>
+      <td><%= link_to "Примечания", books_path(sort: "comment"), remote: true%></td>
       <td colspan="2">Управление</td>
     </tr>
   </thead>
