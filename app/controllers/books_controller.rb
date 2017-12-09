@@ -4,8 +4,7 @@ class BooksController < ApplicationController
 
     def index
         sort = params[:sort] || "id"
-        # @books = Book.order("lower(#{sort})")
-        @books = Book.find_by_sql("SELECT * FROM BOOKS ORDER BY #{sort} COLLATE NOCASE ASC")
+        @books = Book.order("lower(#{sort})")
     end
 
     def new
