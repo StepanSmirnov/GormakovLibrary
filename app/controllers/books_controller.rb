@@ -4,7 +4,7 @@ class BooksController < ApplicationController
 
     def index
         sort = params[:sort] || "id"
-        @books = Book.order("lower(#{sort})")
+        @books = Book.order(sort)
     end
 
     def new
