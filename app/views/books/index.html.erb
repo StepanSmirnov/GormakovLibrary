@@ -1,6 +1,7 @@
 <table>
   <thead>
     <tr>
+      <td><%= link_to "Индекс", books_path(sort: "id"), remote: true%></td>
       <td><%= link_to "Томов", books_path(sort: "tomes_count"), remote: true%></td>
       <td><%= link_to "Автор", books_path(sort: "author"), remote: true%></td>
       <td><%= link_to "Название", books_path(sort: "title"), remote: true%></td>

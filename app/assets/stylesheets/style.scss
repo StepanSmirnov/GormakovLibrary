@@ -1,0 +1,461 @@
+/* - - - - - - -  ГЛОБАЛЬНО  - - - - - - - */
+body {
+	font-family: sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+::-moz-focus-outer, ::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+}
+
+input {
+	box-shadow: none;
+}
+
+input, button {
+	padding: 5px;
+	margin: 5px;
+}
+
+td {
+	margin: 10px;
+	padding: 2px;
+}
+
+button {
+	background-color: #fefefe;
+	border: 1px solid #003772;
+	border-radius: 3px;
+	padding: 5px 15px 5px 15px;
+	cursor: pointer;
+}
+button:hover {
+	border: 1px solid #003772;
+	box-shadow: 0 0 3px gray;
+}
+button:active {
+	border: 1px solid #003772;
+	background-color: #d3d3d3;
+}
+
+#max1 {
+	display: none;
+}
+
+.content {
+	padding: 15px;
+}
+
+
+/* Приоритет окон */
+#window-search {
+	z-index: 105;
+}
+#window-download {
+	z-index: 105;
+}
+#window-add {
+	z-index: 104;
+}
+/* Приоритет окон */
+
+
+/* Оформление окон */
+#window-login, 
+#window-main, 
+#window-add, 
+#window-about, 
+#window-download, 
+#window-search, 
+#window-error {
+	display: none;
+	border: 3px solid #0053ED;
+	border-radius: 7px 7px 0 0;
+	background: #ece9d8;
+	box-shadow: 3px 3px 25px black;
+	position: absolute;
+}
+/* - - - - - - -  ГЛОБАЛЬНО  - - - - - - - */
+
+
+
+/* - - - - - - -  ГЛАВНЫЙ КОНТЕЙНЕР  - - - - - - - */
+main {
+	background: image-url('bg.jpg')  no-repeat center top fixed;
+	background-size: cover;
+	min-height: calc(100vh);
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+/* - - - - - - -  ГЛАВНЫЙ КОНТЕЙНЕР  - - - - - - - */
+
+
+
+/* - - - - - - -  ЗАГОЛОВОК ОКНА  - - - - - - - */
+header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	color: #ffffff;
+	background: #0053ED;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px black;
+	height: 30px;
+	line-height: 30px;
+}
+
+#user, #admin {
+	display: none;
+	padding-left: 10px;
+}
+
+.app-icon-name {
+	display: flex;
+	flex-direction: row;
+}
+.app-icon {
+	padding-left: 3px;
+	padding-right: 5px;
+}
+
+.app-button {
+	display: flex;
+	flex-direction: row;
+	cursor: pointer;
+}
+.app-button__maximize, .app-button__minimize {
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	background: blue;
+	margin-left: 3px;
+}
+.app-button__maximize a, .app-button__minimize a, .app-button__close a {
+	display: block;
+	color: #fff;
+}
+.app-button__maximize:hover, .app-button__minimize:hover {
+	background-color: #1E6CE8;
+}
+.app-button__close {
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	background: red;
+	margin-left: 3px;
+}
+.app-button__close:hover {
+	background-color: #FF5445;
+}
+/* - - - - - - -  ЗАГОЛОВОК ОКНА  - - - - - - - */
+
+
+
+/* - - - - - - -  РАБОЧИЙ СТОЛ  - - - - - - - */
+#desktop {
+	font-family: Tahoma;
+	font-size: 14px;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-end;
+	padding: 15px;
+	padding-left: 5px;
+}
+#desktop p {
+	padding: 0;
+	margin: 0;
+} 
+#desktop a {
+	display: block;
+	text-align: center;
+	height: 85px;
+	color: #fff;
+	text-shadow: 0.1em 0.1em 0.2em black; color: aliceblue;
+}
+.desktop__shortcut {
+	border: 1px solid transparent;
+	text-align: center;
+	width: 100px;
+	padding: 10px;
+	height: 85px;
+}
+.desktop__shortcut:hover {
+	border: 1px solid #0968ed80;
+	background: rgba(54, 137, 255, 0.34);
+}
+/* - - - - - - -  РАБОЧИЙ СТОЛ - - - - - - - */
+
+
+
+/* - - - - - - -  АВТОРИЗАЦИЯ  - - - - - - - */
+#window-login {
+	z-index: 100;
+}
+
+#login-error {
+	margin-top: 15px;
+	color: #fff;
+	text-align: center;	
+	display: none;
+	background: red;
+	border: 2px solid red;
+	border-radius: 	5px;
+}
+
+.window-login__content input {
+	width: 190px;
+	display: block;
+	padding: 5px;
+	margin: 5px;
+	margin-bottom: 15px;
+}
+.window-login__content button {
+	margin-top: 5px;
+	margin-left: 28px;
+	margin-right: 28px;
+	margin-bottom: 7px;
+	width: 160px;
+}
+.window-login__content label {
+	padding: 5px;	
+}
+
+/* - - - - - - -  АВТОРИЗАЦИЯ  - - - - - - - */
+
+
+
+/* - - - - - - -  ГЛАВНОЕ ОКНО  - - - - - - - */
+#window-main {
+	width: 800px;
+	height: 520px;
+	z-index: 99;
+}
+
+table {
+	font-size: 12px;
+	border: 1px solid gray;
+	border-radius: 5px;
+	width: 100%;
+	margin-bottom: 15px;
+}
+thead {
+	background: #d3d3d3;
+	font-weight: bold;
+	text-align: center;
+}
+td {
+	border-right: 1px solid gray;
+}
+td:last-child {
+	border-right: none;
+}
+
+#window-main__content {
+	height: 430px;
+	overflow: auto;
+}
+#window-main__content table tr:hover {
+	background-color: #d3d3d3;
+	cursor: pointer;
+}
+#window-main__content table thead tr:active {
+	background-color: transparent;
+}
+#window-main__content table tr:hover {
+	background-color: #d3d3d3;
+	cursor: pointer;
+}
+#window-main__content table thead tr:active {
+	background-color: transparent;
+}
+
+
+
+
+/* Кнопки управления содержимом базы данных */
+tbody td:nth-child(11), td:nth-child(12) {
+	width: 90%;
+	display: inline-block;
+	padding: 2px;
+	margin: 2px;
+	background-color: #d3d3d3;
+ 	text-align: center;
+	border-radius: 4px;
+	box-shadow: 1px 1px 1px gray;
+}
+tbody td:nth-child(11):hover, td:nth-child(12):hover {
+	box-shadow: 0px 0px 2px gray;
+}
+tbody td:nth-child(11):active, td:nth-child(12):active {
+	box-shadow: 0px 0px 3px white;
+	background-color: gray;
+}
+/* / Кнопки управления содержимом базы данных */
+
+/* v2
+tbody td:nth-child(11), td:nth-child(12) {
+	width: 90%;
+	display: inline-block;
+	padding: 2px;
+	margin: 2px;
+	background-color: #fefefe;
+	border: 1px solid #003772;
+	border-radius: 3px;
+}
+v2 */
+
+/* - - - - - - -  ГЛАВНОЕ ОКНО  - - - - - - - */
+
+
+
+/* - - - - - - -  СВЁРНУТОЕ ОКНО  - - - - - - - */
+#turn {
+	border-radius: 8px 8px 0 0;
+	display: none;
+	padding-left: 10px;
+	text-align: left;
+	min-width: 180px;
+	min-height: 30px;
+	line-height: 30px;
+	background: #0053ED;
+	position: absolute;
+    bottom: 0;
+    left: 1;
+    box-shadow: 0px 0px 5px #000;
+}
+#turn a {
+	color: #fff;
+	display: block;
+}
+/* - - - - - - -  СВЁРНУТОЕ ОКНО  - - - - - - - */
+
+
+
+/* - - - - - - -  МЕНЮ  - - - - - - - */
+.app-menu {
+	height: 29px;
+	border-bottom: 1px solid #ffffff;
+}
+ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+ul:after {
+    display: block;
+    content: ' ';
+    clear: both;
+    float: none;
+}
+ul.app-menu__main-menu > li {
+    float: left;
+    position: relative;
+    margin-right: 5px; 
+}
+ul.app-menu__main-menu > li > a {
+    display: block;
+    text-decoration: none;
+	padding: 3px;
+	margin: 1px;
+}
+ul.app-menu__main-menu > li > a:hover {
+    background-color: blue;
+    color: #ffffff;
+}
+ul.app-menu__sub-menu {
+    display: none;
+    position: absolute;
+    width: 250px;
+    left: 0;
+    background-color: white;
+}
+ul.app-menu__sub-menu > li {
+    display: block;
+}
+ul.app-menu__sub-menu > li > a {
+	padding: 3px;
+	margin: 1px;
+    display: block;
+    text-decoration: none;
+}
+ul.app-menu__sub-menu > li > a:hover {
+    background-color: blue;
+    color: white;
+}
+ul.app-menu__sub-menu > li > a:active {
+    background-color: #1313c0;
+}
+ul.app-menu__main-menu > li:hover > ul.app-menu__sub-menu {
+    display: block;
+}
+/* - - - - - - -  МЕНЮ  - - - - - - - */
+
+
+
+/* - - - - - - -  ОКНО ДОБАВЛЕНИЯ В БАЗУ ДАННЫХ  - - - - - - - */
+#window-add input {
+	width: 190px;
+	display: inline-block;
+	padding: 5px;
+	margin: 5px;
+}
+#window-add button {
+	margin-top: 15px;
+	margin-left: 28px;
+	width: 125px;
+}
+#window-add label {
+	display: inline-block;
+	width: 125px;
+}
+/* - - - - - - -  ОКНО ДОБАВЛЕНИЯ В БАЗУ ДАННЫХ  - - - - - - - */
+
+
+
+/* - - - - - - -  О ПРОГРАММЕ  - - - - - - - */
+#window-about {
+	z-index: 101;
+}
+.window-about__content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+.window-about__content img {
+	-moz-transition: all 1s 0.1s ease-in;
+	-o-transition: all 1s 0.1s ease-in;
+	-webkit-transition: all 1s 0.1s ease-in;
+}
+.window-about__content img:hover {
+	transform: rotate(180deg);
+
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+
+}
+
+.window-about__content .copyright {
+	color: #292929;
+}
+/* - - - - - - -  О ПРОГРАММЕ  - - - - - - - */
