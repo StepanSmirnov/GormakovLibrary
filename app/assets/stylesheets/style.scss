@@ -30,18 +30,18 @@ td {
 	padding: 2px;
 }
 
-button {
+button, #window-add input:nth-child(30) {
 	background-color: #fefefe;
 	border: 1px solid #003772;
 	border-radius: 3px;
 	padding: 5px 15px 5px 15px;
 	cursor: pointer;
 }
-button:hover {
+button:hover, #window-add input:nth-child(30):hover {
 	border: 1px solid #003772;
 	box-shadow: 0 0 3px gray;
 }
-button:active {
+button:active, #window-add input:nth-child(30):hover {
 	border: 1px solid #003772;
 	background-color: #d3d3d3;
 }
@@ -288,7 +288,9 @@ td:last-child {
 }
 
 
-
+tbody td:nth-child(1), td:nth-child(2), td:nth-child(7) {
+	text-align: center;
+}
 
 /* Кнопки управления содержимом базы данных */
 tbody td:nth-child(11), td:nth-child(12) {
